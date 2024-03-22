@@ -20,7 +20,7 @@ import {
   expectToBeNonNull,
   expectToBeNull,
   expectToBeUndefined,
-} from "./expect.js";
+} from "./index.js";
 
 describe("expect toBeDefined/Undefined", () => {
   test("expectToBeDefined asserts that type is not undefined", () => {
