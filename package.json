@@ -37,8 +37,6 @@
   "devDependencies": {
     "@8hobbies/eslint-conf-baseline": "^2.1.0",
     "@8hobbies/typedoc-plugin-404": "^2.0.0",
-    "@babel/preset-env": "^7.24.3",
-    "@babel/preset-typescript": "^7.24.1",
     "@types/jest": "^29.5.12",
     "@types/node": "^20.11.30",
     "@vitest/coverage-v8": "^1.4.0",
