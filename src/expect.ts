@@ -10,7 +10,7 @@
  *     // ^ 'iAmDefined' is possibly 'undefined'.
  * ```
  * This is annoying as either a verbose`if`-clause is needed to inform the TypeScript compiler that
- * `iAmDefined` is not undefined, or an unsafe type assertion`!` is needed.Similar problems exists
+ * `iAmDefined` is not undefined, or an unsafe type assertion`!` is needed. Similar problems exist
  * for `null`.
  *
  * This module solves this family of problems with {@link expectToBeDefined}.Simply replace
