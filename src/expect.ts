@@ -1,6 +1,28 @@
+/**
+ * Utilities that wrap some assertions in {@link vitest!expect} with type assertions.
+ *
+ * One nuance with some of the {@link vitest!expect} functions are the lack of type assertions.
+ * @example
+ * ```ts
+ * const iAmDefined: number | undefined = Math.random() < 1 ? 10 : undefined;
+ * expect(iAmDefined).toBeDefined();
+ * expect(iAmDefined + 1).toBe(11);
+ *     // ^ 'iAmDefined' is possibly 'undefined'.
+ * ```
+ * This is annoying as either a verbose`if`-clause is needed to inform the TypeScript compiler that
+ * `iAmDefined` is not undefined, or an unsafe type assertion`!` is needed.Similar problems exists
+ * for `null`.
+ *
+ * This module solves this family of problems with {@link expectToBeDefined}.Simply replace
+ * `expect(iAmDefined).toBeDefined()` with `expectToBeDefined(iAmDefined)`, and the above error is
+ * gone.
+ *
+ * @module expect
+ */
+
 /** @license Apache-2.0
  *
- * Copyright 2024 Hong Xu <hong@8hobbies.com>
+ * Copyright 2024 8 Hobbies, LLC <hong@8hobbies.com>
  *
  * Licensed under the Apache License, Version 2.0(the "License");
  * you may not use this file except in compliance with the License.
@@ -17,24 +39,84 @@
 
 import { expect } from "vitest";
 
-// expect().toBeDefined() with type assertion.
+/**
+ * Equivalent to calling `vitest.expect(arg).toBeDefined()` while also asserting `arg` to be
+ * defined.
+ *
+ * @typeParam T - The type of `arg`.
+ * @param arg - The variable to be asserted.
+ * @return `undefined`.
+ * @assert `arg` is not undefined.
+ *
+ * @example
+ * ```ts
+ * const iAmDefined: number | undefined = Math.random() < 1 ? 10 : undefined;
+ * expectToBeDefined(iAmDefined);
+ * expect(iAmDefined + 1).toBe(11);
+ * ```
+ */
 export function expectToBeDefined<T>(
   arg: T,
 ): asserts arg is Exclude<T, undefined> {
   expect(arg).toBeDefined();
 }
 
-// expect().toBeUndefined() with type assertion.
+/**
+ * Equivalent to calling `vitest.expect(arg).toBeUndefined()` while also asserting `arg` to be
+ * undefined.
+ *
+ * @typeParam T - The type of `arg`.
+ * @param arg - The variable to be asserted.
+ * @return `undefined`.
+ * @assert `arg` is undefined.
+ *
+ * @example
+ * ```ts
+ * const iAmUndefined: number | undefined = Math.random() >= 0 ? 10 : undefined;
+ * expectToBeUndefined(iAmUndefined);
+ * expect(iAmUndefined + 1).toBe(11);
+ *     // ^ 'iAmUndefined' is possibly 'undefined'.
+ * ```
+ */
 export function expectToBeUndefined(arg: unknown): asserts arg is undefined {
   expect(arg).toBeUndefined();
 }
 
-// expect().not.toBeNull() with type assertion.
+/**
+ * Equivalent to calling `vitest.expect(arg).not.toBeNull()` while also asserting `arg` to non-null.
+ *
+ * @typeParam T - The type of `arg`.
+ * @param arg - The variable to be asserted.
+ * @return `undefined`.
+ * @assert `arg` is not null.
+ *
+ * @example
+ * ```ts
+ * const iAmNotNull: number | null = Math.random() < 1 ? 10 : null;
+ * expectToBeDefined(iAmNotNull);
+ * expect(iAmNotNull + 1).toBe(11);
+ * ```
+ */
 export function expectToBeNonNull<T>(arg: T): asserts arg is Exclude<T, null> {
   expect(arg).not.toBeNull();
 }
 
-// expect().toBeNull() with type assertion.
+/**
+ * Equivalent to calling `vitest.expect(arg).toBeNull()` while also asserting `arg` to be null.
+ *
+ * @typeParam T - The type of `arg`.
+ * @param arg - The variable to be asserted.
+ * @return `undefined`.
+ * @assert `arg` is null.
+ *
+ * @example
+ * ```ts
+ * const iAmNull: number | null = Math.random() >= 0 ? 10 : null;
+ * expectToBeUndefined(iAmNull);
+ * expect(iAmNull + 1).toBe(11);
+ *     // ^ 'iAmNull' is possibly 'null'.
+ * ```
+ */
 export function expectToBeNull(arg: unknown): asserts arg is null {
   expect(arg).toBeNull();
 }

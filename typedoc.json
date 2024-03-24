@@ -2,5 +2,11 @@
   "$schema": "https://typedoc.org/schema.json",
   "entryPoints": ["./src/expect.ts"],
   "plugin": ["@8hobbies/typedoc-plugin-404"],
-  "sitemapBaseUrl": "https://test-utils.8hobbies.com"
+  "sitemapBaseUrl": "https://test-utils.8hobbies.com",
+  "blockTags": ["@assert"],
+  "externalSymbolLinkMappings": {
+    "vitest": {
+      "expect": "https://vitest.dev/api/expect"
+    }
+  }
 }

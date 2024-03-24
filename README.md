@@ -22,7 +22,7 @@ To send your contribution, open a [merge request][].
 ## License
 
 ```text
-Copyright 2024 Hong Xu <hong@8hobbies.com>
+Copyright 2024 8 Hobbies, LLC <hong@8hobbies.com>
 
 Licensed under the Apache License, Version 2.0(the "License");
 you may not use this file except in compliance with the License.
@@ -37,7 +37,7 @@ See the License for the specific language governing permissions and
 limitations under the License.
 ```
 
+[api documentation]: https://test-utils.8hobbies.com/modules.html
 [issue tracker]: https://gitlab.com/8hobbies/test-utils/issues
 [merge request]: https://gitlab.com/8hobbies/test-utils/-/merge_requests
-[online documentation]: https://test-utils.8hobbies.com/modules.html
 [source code]: https://gitlab.com/8hobbies/test-utils
