@@ -23,7 +23,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://gitlab.com/8hobbies/test-utils"
+    "url": "https://gitlab.com/8hobbies/test-utils.git"
   },
   "keywords": [
     "utils"
