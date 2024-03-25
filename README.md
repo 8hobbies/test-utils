@@ -4,8 +4,8 @@
 [![pipeline status](https://gitlab.com/8hobbies/test-utils/badges/master/pipeline.svg)](https://gitlab.com/8hobbies/test-utils/-/commits/master)
 [![coverage report](https://gitlab.com/8hobbies/test-utils/badges/master/coverage.svg)](https://gitlab.com/8hobbies/test-utils/-/commits/master)
 
-A library that consists of test utilities. Please refer to the [api
-documentation][] for references.
+A library that consists of generally useful [vitest][] utilities. Please refer
+to the [api documentation][] for references.
 
 ## Contributing
 
@@ -41,3 +41,4 @@ limitations under the License.
 [issue tracker]: https://gitlab.com/8hobbies/test-utils/issues
 [merge request]: https://gitlab.com/8hobbies/test-utils/-/merge_requests
 [source code]: https://gitlab.com/8hobbies/test-utils
+[vitest]: https://vitest.dev/
