@@ -16,3 +16,4 @@
  */
 
 export * from "./expect.js";
+export type * from "./expect.d.ts";
