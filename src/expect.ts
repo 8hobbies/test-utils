@@ -65,7 +65,6 @@ export function expectToBeDefined<T>(
  * Equivalent to calling `vitest.expect(arg).toBeUndefined()` while also asserting `arg` to be
  * undefined.
  *
- * @typeParam T - The type of `arg`.
  * @param arg - The variable to be asserted.
  * @return `undefined`.
  * @assert `arg` is undefined.
@@ -104,7 +103,6 @@ export function expectToBeNonNull<T>(arg: T): asserts arg is Exclude<T, null> {
 /**
  * Equivalent to calling `vitest.expect(arg).toBeNull()` while also asserting `arg` to be null.
  *
- * @typeParam T - The type of `arg`.
  * @param arg - The variable to be asserted.
  * @return `undefined`.
  * @assert `arg` is null.
@@ -119,4 +117,46 @@ export function expectToBeNonNull<T>(arg: T): asserts arg is Exclude<T, null> {
  */
 export function expectToBeNull(arg: unknown): asserts arg is null {
   expect(arg).toBeNull();
+}
+
+/**
+ * Equivalent to calling `vitest.expect(arg).toBe(expected)` while also asserting `arg` to be
+ * the type of `expected`.
+ *
+ * @typeParam T - The type of `arg`.
+ * @param arg - The variable to be asserted.
+ * @param expected - The expected value.
+ * @return `undefined`.
+ * @assert `arg` is `T`.
+ *
+ * @example
+ * ```ts
+ * const iAmTen: number | null = Math.random() >= 0 ? 10 : 0;
+ * expectToBe(iAmTen, 10);
+ * // iAmTen now is of type `10`.
+ * ```
+ */
+export function expectToBe<T>(arg: unknown, expected: T): asserts arg is T {
+  expect(arg).toBe(expected);
+}
+
+/**
+ * Equivalent to calling `vitest.expect(arg).toEqual(expected)` while also asserting `arg` to be
+ * the type of `expected`.
+ *
+ * @typeParam T - The type of `arg`.
+ * @param arg - The variable to be asserted.
+ * @param expected - The expected value.
+ * @return `undefined`.
+ * @assert `arg` is `T`.
+ *
+ * @example
+ * ```ts
+ * const parsed = JSON.parse('{"key": "val"}')
+ * expectToEqual(parsed, {key: "val"} as const);
+ * // parsed now is of type {readonly key: "val"}.
+ * ```
+ */
+export function expectToEqual<T>(arg: unknown, expected: T): asserts arg is T {
+  expect(arg).toEqual(expected);
 }

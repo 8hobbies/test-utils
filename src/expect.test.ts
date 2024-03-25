@@ -15,11 +15,15 @@
  * limitations under the License.
  */
 
+import { expectType } from "ts-expect";
+
 import {
+  expectToBe,
   expectToBeDefined,
   expectToBeNonNull,
   expectToBeNull,
   expectToBeUndefined,
+  expectToEqual,
 } from "./index.js";
 
 describe("expect toBeDefined/Undefined", () => {
@@ -51,5 +55,20 @@ describe("expect toBeNonNull/Null", () => {
     expectToBeNull(arg);
     const someNull: null = arg; // TS compilation passes because arg is null.
     someNull;
+  });
+});
+
+describe("expect toBe/toEqual", () => {
+  test("expectToBe asserts that the type is the expected type", () => {
+    const arg: number = 10;
+    expectToBe(arg, 10);
+    expectType<10>(arg);
+  });
+
+  test("expectToEqual asserts that the type is the expected type", () => {
+    const expected = { key: "val" } as const;
+    const arg = JSON.parse('{"key": "val"}');
+    expectToEqual(arg, expected);
+    expectType<typeof expected>(arg);
   });
 });
