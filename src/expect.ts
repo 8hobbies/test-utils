@@ -129,11 +129,22 @@ export function expectToBeNull(arg: unknown): asserts arg is null {
  * @return `undefined`.
  * @assert `arg` is `T`.
  *
- * @example
+ * @example Basic
  * ```ts
- * const iAmTen: number | null = Math.random() >= 0 ? 10 : 0;
+ * const iAmTen: number | null = Math.random() >= 0 ? 10 : Math.random();
  * expectToBe(iAmTen, 10);
- * // iAmTen now is of type `10`.
+ * // iAmTen is of type 10.
+ * ```
+ *
+ * @example A more practically meaningful scenario
+ * ```ts
+ * const inputs = [10, 100] as const;
+ * const expectedResults = [10, 100] as const;
+ * inputs.forEach((input, index) => {
+ *   const result = Math.random() >= 0 ? input : Math.random();
+ *   expectToBe(result, expectedResults[index]);
+ *   // result is of type 10 | 100.
+ * });
  * ```
  */
 export function expectToBe<T>(arg: unknown, expected: T): asserts arg is T {
@@ -150,11 +161,22 @@ export function expectToBe<T>(arg: unknown, expected: T): asserts arg is T {
  * @return `undefined`.
  * @assert `arg` is `T`.
  *
- * @example
+ * @example Basic
  * ```ts
  * const parsed = JSON.parse('{"key": "val"}')
  * expectToEqual(parsed, {key: "val"} as const);
- * // parsed now is of type {readonly key: "val"}.
+ * // parsed is of type {readonly key: "val"}.
+ * ```
+ *
+ * @example A more practically meaningful scenario
+ * ```ts
+ * const inputs = ['{"key1": "val1"}', '{"key2": "val2"}'];
+ * const expectedResults = [{ key1: "val1" }, { key2: "val2" }] as const;
+ * inputs.forEach((input, index) => {
+ *   const parsed = JSON.parse(input);
+ *   expectToEqual(parsed, expectedResults[index]);
+ *   // parsed is of type { readonly key1: "val1"; } | { readonly key2: "val2"; }
+ * });
  * ```
  */
 export function expectToEqual<T>(arg: unknown, expected: T): asserts arg is T {
