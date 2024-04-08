@@ -4,6 +4,8 @@
 [![pipeline status](https://gitlab.com/8hobbies/test-utils/badges/master/pipeline.svg)](https://gitlab.com/8hobbies/test-utils/-/commits/master)
 [![coverage report](https://gitlab.com/8hobbies/test-utils/badges/master/coverage.svg)](https://gitlab.com/8hobbies/test-utils/-/commits/master)
 
+[GitLab](https://gitlab.com/8hobbies/test-utils) | [GitHub](https://github.com/8hobbies/test-utils)
+
 A library that consists of generally useful [vitest][] utilities. Please refer
 to the [api documentation][] for references.
 
