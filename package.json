@@ -10,6 +10,9 @@
     "!/dist/**.test.d.ts",
     "!/dist/**.test.js"
   ],
+  "engines": {
+    "node": "^18 || ^20 || >= 21"
+  },
   "scripts": {
     "clean": "rimraf dist/",
     "compile": "tsc --project tsconfig.json && tsc --project tsconfig.test.json",
