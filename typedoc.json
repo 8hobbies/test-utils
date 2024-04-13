@@ -1,12 +1,16 @@
 {
   "$schema": "https://typedoc.org/schema.json",
   "entryPoints": ["./src/expect.ts"],
-  "plugin": ["@8hobbies/typedoc-plugin-404"],
-  "sitemapBaseUrl": "https://test-utils.8hobbies.com",
+  "plugin": [
+    "@8hobbies/typedoc-plugin-404",
+    "@8hobbies/typedoc-plugin-plausible"
+  ],
+  "sitemapBaseUrl": "https://test-utils.8hob.io",
   "blockTags": ["@assert"],
   "externalSymbolLinkMappings": {
     "vitest": {
       "expect": "https://vitest.dev/api/expect"
     }
-  }
+  },
+  "plausibleSiteDomain": "oss.8hob.io"
 }
