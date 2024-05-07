@@ -55,7 +55,7 @@ runtime-linux:
       - IMAGE:
           - "node:18"
           - "node:20"
-          - "node:21"
+          - "node:22"
 
 runtime-windows:
   extends: ".runtime"
