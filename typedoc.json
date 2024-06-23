@@ -7,7 +7,6 @@
   ],
   "hostedBaseUrl": "https://test-utils.8hob.io",
   "useHostedBaseUrlForAbsoluteLinks": true,
-  "blockTags": ["@assert"],
   "externalSymbolLinkMappings": {
     "vitest": {
       "expect": "https://vitest.dev/api/expect"
