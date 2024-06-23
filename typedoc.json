@@ -2,18 +2,17 @@
   "$schema": "https://typedoc.org/schema.json",
   "entryPoints": ["./src/expect.ts"],
   "plugin": [
-    "typedoc-plugin-extra-footer",
     "@8hobbies/typedoc-plugin-404",
     "@8hobbies/typedoc-plugin-plausible"
   ],
-  "sitemapBaseUrl": "https://test-utils.8hob.io",
+  "hostedBaseUrl": "https://test-utils.8hob.io",
+  "useHostedBaseUrlForAbsoluteLinks": true,
   "blockTags": ["@assert"],
   "externalSymbolLinkMappings": {
     "vitest": {
       "expect": "https://vitest.dev/api/expect"
     }
   },
-  "extraFooter": "&copy; 2024 <a href=\"https://8hob.io\">8 Hobbies, LLC</a>",
-  "plausibleSiteDomain": "oss.8hob.io",
-  "page404SuppressDefaultThemeWarning": true
+  "customFooterHtml": "&copy; 2024 <a href=\"https://8hob.io\">8 Hobbies, LLC</a>",
+  "plausibleSiteDomain": "oss.8hob.io"
 }
