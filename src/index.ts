@@ -16,4 +16,7 @@
  */
 
 export * from "./expect.js";
+export * from "./for_at_least_once.js";
+
 export type * from "./expect.d.ts";
+export type * from "./for_at_least_once.d.ts";
