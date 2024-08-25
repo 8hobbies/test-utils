@@ -62,16 +62,15 @@ export function forEachAtLeastOnce<T>(
     | Parameters<ReadonlyArray<T>["forEach"]>[0]
     | Parameters<Array<T>["forEach"]>[0],
 ): void {
-  let called = false;
-  array.forEach((element, index, a) => {
-    // Work around the failure to assign a readonly array to a mutable array.
-    const mutableArray = a as Parameters<Parameters<Array<T>["forEach"]>[0]>[2];
-    callback(element, index, mutableArray);
-    called = true;
-  });
-  if (!called) {
+  if (array.length === 0) {
     throw new AssertionError({
       message: "Array forEach did not iterate at least once.",
     });
   }
+
+  // Work around the failure to assign a readonly array to a mutable array.
+  const mutableArray = array as Parameters<
+    Parameters<Array<T>["forEach"]>[0]
+  >[2];
+  mutableArray.forEach(callback);
 }
