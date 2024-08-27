@@ -63,9 +63,10 @@ export function forEachAtLeastOnce<T>(
     | Parameters<Array<T>["forEach"]>[0],
 ): void {
   if (array.length === 0) {
-    throw new AssertionError({
+    throw {
       message: "Array forEach did not iterate at least once.",
-    });
+      name: "ForEachAtLeastOnceError",
+    } as const;
   }
 
   // Work around the failure to assign a readonly array to a mutable array.
