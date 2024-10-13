@@ -39,7 +39,7 @@ See the License for the specific language governing permissions and
 limitations under the License.
 ```
 
-[api documentation]: https://test-utils.8hob.io/modules.html
+[api documentation]: https://test-utils.8hob.io
 [issue tracker]: https://gitlab.com/8hobbies/test-utils/issues
 [merge request]: https://gitlab.com/8hobbies/test-utils/-/merge_requests
 [source code]: https://gitlab.com/8hobbies/test-utils
