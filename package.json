@@ -1,6 +1,6 @@
 {
   "name": "@8hobbies/test-utils",
-  "version": "2.2.0",
+  "version": "2.3.0",
   "description": "Test utilities.",
   "main": "dist/index.js",
   "type": "module",
@@ -42,7 +42,7 @@
     "@8hobbies/typedoc-plugin-404": "^3.1.0",
     "@8hobbies/typedoc-plugin-plausible": "^2.1.0",
     "@types/jest": "^29.5.14",
-    "@types/node": "^22.10.5",
+    "@types/node": "^22.10.7",
     "@vitest/coverage-v8": "^2.1.8",
     "globals": "^15.14.0",
     "prettier": "^3.4.2",
@@ -53,6 +53,6 @@
     "typescript": "~5.7.3"
   },
   "peerDependencies": {
-    "vitest": "^2.1.6"
+    "vitest": "^2.1.6 || ^3.0.3"
   }
 }
